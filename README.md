@@ -1,5 +1,12 @@
 # ZH Tax Assistant
 
+> **⚠️ Disclaimer:** This is not production-ready software and is not
+> affiliated with the Kanton of Zurich or any tax authority. It does not
+> provide financial, tax, or legal advice — AI-suggested values may be
+> wrong or incomplete. You use this extension entirely at your own risk
+> and remain solely responsible for reviewing, correcting, and submitting
+> your own tax declaration.
+
 A Chrome extension that helps you fill in the Kanton Zürich
 [ZHprivateTax](https://zhp.services.zh.ch/app/ZHprivateTax/) online tax
 declaration: upload your documents, review what got extracted, then walk
