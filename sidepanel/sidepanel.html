@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>ZH Tax Assistant</title>
+  <link rel="stylesheet" href="sidepanel.css" />
+</head>
+<body>
+  <header>
+    <div class="brand">ZH Tax Assistant</div>
+    <nav class="steps" id="stepNav">
+      <button data-step="upload" class="step active">1. Documents</button>
+      <button data-step="review" class="step">2. Review</button>
+      <button data-step="fill" class="step">3. Fill in</button>
+    </nav>
+  </header>
+
+  <main id="app">
+
+    <!-- AI provider not configured -->
+    <section id="noKeyBanner" class="banner hidden">
+      <p>No AI provider configured yet.</p>
+      <button id="openOptions">Open settings</button>
+    </section>
+
+    <!-- STEP 1: Upload -->
+    <section id="stepUpload" class="step-panel">
+      <p class="hint">
+        Upload the documents you'll need. I'll show you what each one looks
+        like and pull the relevant numbers out — everything stays in this
+        browser except the document itself, which is sent to your configured
+        AI provider once for extraction.
+      </p>
+      <div id="docTypeList" class="doc-type-list"></div>
+
+      <h3>Uploaded documents</h3>
+      <ul id="docList" class="doc-list"></ul>
+
+      <button id="toReview" class="primary full">Continue to review →</button>
+    </section>
+
+    <!-- STEP 2: Review -->
+    <section id="stepReview" class="step-panel hidden">
+      <p class="hint">Here's what I've gathered so far. Fix anything that looks off before we start filling in the form.</p>
+      <div id="profileSummary" class="profile-summary"></div>
+      <button id="toFill" class="primary full">Start filling in ZHprivateTax →</button>
+    </section>
+
+    <!-- STEP 3: Guided fill -->
+    <section id="stepFill" class="step-panel hidden">
+      <div id="notOnSiteBanner" class="banner hidden">
+        <p>Open <a href="https://zhp.services.zh.ch/app/ZHprivateTax/" target="_blank" rel="noopener">zhp.services.zh.ch</a> and navigate to your tax declaration to begin.</p>
+      </div>
+
+      <div id="sectionHeader" class="section-header hidden">
+        <div class="section-name" id="sectionName">—</div>
+        <button id="scanPage" class="secondary">Scan this page</button>
+      </div>
+
+      <div id="bulkImportCard" class="card bulk-import-card hidden"></div>
+
+      <div id="suggestions" class="suggestions"></div>
+      <div id="scanEmpty" class="hint hidden">No recognizable form fields on this page yet. Navigate to a section with a form, then hit "Scan this page".</div>
+    </section>
+  </main>
+
+  <script src="sidepanel.js" type="module"></script>
+</body>
+</html>

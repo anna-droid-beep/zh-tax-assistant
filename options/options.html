@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>ZH Tax Assistant — Settings</title>
+  <link rel="stylesheet" href="options.css" />
+</head>
+<body>
+  <main>
+    <h1>ZH Tax Assistant — Settings</h1>
+
+    <section class="card">
+      <h2>AI provider</h2>
+      <p>
+        Pick whichever AI you already have an API key for. Calls go straight
+        from your browser to that provider's own API using your own key —
+        there is no proxy server in between, and nothing is sent anywhere
+        else.
+      </p>
+
+      <label for="provider">Provider</label>
+      <select id="provider"></select>
+
+      <label for="apiKey" id="apiKeyLabel">API key</label>
+      <input id="apiKey" type="password" autocomplete="off" />
+      <p class="fieldHelp" id="apiKeyHelp"></p>
+
+      <div id="modelRow">
+        <label for="model" id="modelLabel">Model (optional override)</label>
+        <input id="model" type="text" autocomplete="off" />
+      </div>
+
+      <div id="baseUrlRow" class="hidden">
+        <label for="baseUrl">Base URL</label>
+        <input id="baseUrl" type="text" autocomplete="off" placeholder="https://your-endpoint.example.com/v1" />
+        <p class="fieldHelp">
+          Any OpenAI-compatible <code>/chat/completions</code> endpoint — OpenRouter, Groq, a local
+          Ollama/LM Studio server, etc. You'll be asked to grant this extension permission to reach
+          that host the first time you save it.
+        </p>
+      </div>
+
+      <div class="row">
+        <button id="save">Save</button>
+        <button id="clear" class="secondary">Remove key</button>
+        <span id="status"></span>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Your data</h2>
+      <p>
+        Uploaded documents and everything extracted from them are stored only
+        in this browser (<code>chrome.storage.local</code>) — nothing is
+        synced to a server. Clearing extension data removes it permanently.
+      </p>
+      <button id="clearProfile" class="secondary">Clear all tax data</button>
+      <span id="profileStatus"></span>
+    </section>
+  </main>
+  <script src="options.js" type="module"></script>
+</body>
+</html>

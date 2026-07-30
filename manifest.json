@@ -1,0 +1,49 @@
+{
+  "manifest_version": 3,
+  "name": "ZH Tax Assistant",
+  "version": "0.1.0",
+  "description": "AI assistant that helps you gather documents and fill out the Kanton Zürich ZHprivateTax online tax declaration.",
+  "action": {
+    "default_title": "Open ZH Tax Assistant"
+  },
+  "side_panel": {
+    "default_path": "sidepanel/sidepanel.html"
+  },
+  "background": {
+    "service_worker": "background/background.js",
+    "type": "module"
+  },
+  "options_page": "options/options.html",
+  "permissions": [
+    "sidePanel",
+    "storage",
+    "scripting",
+    "activeTab",
+    "permissions"
+  ],
+  "host_permissions": [
+    "https://zhp.services.zh.ch/*",
+    "https://api.anthropic.com/*",
+    "https://api.openai.com/*",
+    "https://generativelanguage.googleapis.com/*"
+  ],
+  "optional_host_permissions": [
+    "https://*/*",
+    "http://localhost/*",
+    "http://127.0.0.1/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://zhp.services.zh.ch/app/ZHprivateTax*"
+      ],
+      "js": ["content/content-script.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}
