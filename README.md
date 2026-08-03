@@ -155,3 +155,5 @@ knowledge/*.md                paraphrased per-section guidance fed to the AI
   Chrome.
 - If Chrome's side panel doesn't auto-open on navigation (platform-dependent
   gesture requirement), click the toolbar icon manually.
+
+<!-- test commit: verifying Claude can push to this repo -->
